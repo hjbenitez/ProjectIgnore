@@ -29,7 +29,7 @@ public class ChangableObject : MonoBehaviour
         {
             return; // All Changed
         }
-        bool shouldUpdate = true; // change to eye blink variable
+        bool shouldUpdate = GameManager.instance.GetEyesIsClosed(); // change to eye blink variable
         if (shouldUpdate)
         {
             currentTimer += Time.deltaTime;

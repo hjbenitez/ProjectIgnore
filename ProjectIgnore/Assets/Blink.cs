@@ -21,7 +21,7 @@ public class Blink : MonoBehaviour
      public float eyeSpeed;
 
      bool closing; //controls the eye opening/closing animation
-    public  bool closed; //used to check if eyes are closed to things can happen
+     public  bool closed; //used to check if eyes are closed to things can happen
 
      // Start is called before the first frame update
      void Start()
