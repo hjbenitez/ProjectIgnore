@@ -10,6 +10,7 @@ public class ChangableObject : MonoBehaviour
     private SpriteRenderer render;
     private float targetDuration = 0;
     private float currentTimer = 0;
+    private bool isSelected = false;
 
     private void Awake()
     {
@@ -30,7 +31,7 @@ public class ChangableObject : MonoBehaviour
             return; // All Changed
         }
         bool shouldUpdate = GameManager.instance.GetEyesIsClosed(); // change to eye blink variable
-        if (shouldUpdate)
+        if (shouldUpdate && isSelected)
         {
             currentTimer += Time.deltaTime;
             if (currentTimer > targetDuration)
@@ -44,5 +45,10 @@ public class ChangableObject : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void SetIsSelected(bool isSelected)
+    {
+        this.isSelected = isSelected;
     }
 }
