@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     [SerializeField] private GameObject Eyes;
-
+    [SerializeField] private ChangableObject selectedObject;
     private Blink blink;
 
     private void Awake()
@@ -22,17 +22,16 @@ public class GameManager : MonoBehaviour
         return blink.closed;
     }
 
-    private void Update()
+    public void SetSelectedObject(ChangableObject selectedObject)
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+        this.selectedObject = selectedObject;
+        selectedObject.SetIsSelected(true);
+    }
 
-            if (hit.collider != null && hit.collider.tag == "Object")
-            {
-                Debug.Log("Object clicked");
-            }
-        }
+    public void RemoveSelectedObject()
+    {
+        selectedObject.SetIsSelected(false);
+        this.selectedObject = null; ;
     }
 
 }
