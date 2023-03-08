@@ -1201,6 +1201,10 @@ MonoBehaviour:
   item: {fileID: 1706195579}
   Eyes: {fileID: 1331496133}
   selectedObject: {fileID: 0}
+  allObjects:
+  - {fileID: 1523608030}
+  - {fileID: 48710175}
+  - {fileID: 1483474749}
 --- !u!4 &589962999
 Transform:
   m_ObjectHideFlags: 0

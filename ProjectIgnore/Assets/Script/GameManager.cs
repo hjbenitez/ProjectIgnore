@@ -11,6 +11,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] private SpriteRenderer item;
     [SerializeField] private GameObject Eyes;
     [SerializeField] private ChangableObject selectedObject;
+    [SerializeField] private List<ChangableObject> allObjects;
+
+    private float targetDuration = 5;
+    private float currentTimer = 0;
+    private bool isEndedARound = false;
+
     private Blink blink;
 
     private void Awake()
@@ -21,9 +27,38 @@ public class GameManager : MonoBehaviour
         
     }
 
+    private void UpdateAllObjects()
+    {
+        foreach (ChangableObject obj in allObjects)
+        {
+            obj.UpdatePhrase();
+        }
+    }
+
     private void Update()
     {
-        if(selectedObject != null)
+        if (GetEyesIsClosed())
+        {
+            //Debug.Log("Eye cloesed");
+            if (!isEndedARound)
+            {
+                currentTimer += Time.deltaTime;
+                if (currentTimer >= targetDuration)
+                {
+                    Debug.Log("Update Object");
+                    UpdateAllObjects();
+                    isEndedARound = true;
+                    currentTimer = 0;
+                }
+            }
+        }
+        else
+        {
+            isEndedARound = false;
+            currentTimer = 0;
+        }
+
+        if (selectedObject != null)
         {
             item.gameObject.SetActive(true);
             item.sprite = selectedObject.GetComponent<SpriteRenderer>().sprite;

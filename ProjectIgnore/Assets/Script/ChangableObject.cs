@@ -29,27 +29,36 @@ public class ChangableObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (currentIndex >= objectInfos.Count)
-        {
-            return; // All Changed
-        }
-        bool shouldUpdate = GameManager.instance.GetEyesIsClosed(); // change to eye blink variable
-        if (shouldUpdate && isSelected)
-        {
-            currentTimer += Time.deltaTime;
-            if (currentTimer > targetDuration)
-            {
-                currentIndex++;
-                ac.SetInteger("index", currentIndex);
+        //if (currentIndex >= objectInfos.Count)
+        //{
+        //    return; // All Changed
+        //}
+        //bool shouldUpdate = GameManager.instance.GetEyesIsClosed(); // change to eye blink variable
+        //if (shouldUpdate && isSelected)
+        //{
+        //    currentTimer += Time.deltaTime;
+        //    if (currentTimer > targetDuration)
+        //    {
+        //        currentIndex++;
+        //        ac.SetInteger("index", currentIndex);
 
-                if (currentIndex < objectInfos.Count)
-                {
-                    render.sprite = objectInfos[currentIndex].image;
-                    targetDuration = objectInfos[currentIndex].duration;
-                    currentTimer = 0;
-                }
-            }
-        }
+        //        if (currentIndex < objectInfos.Count)
+        //        {
+        //            render.sprite = objectInfos[currentIndex].image;
+        //            targetDuration = objectInfos[currentIndex].duration;
+        //            currentTimer = 0;
+        //        }
+        //    }
+        //}
+    }
+
+    public void UpdatePhrase()
+    {
+        currentIndex = isSelected ? currentIndex - 1 : currentIndex + 1;
+        currentIndex = Mathf.Clamp(currentIndex, 0, objectInfos.Count - 1);
+        Debug.Log("currentIndex = " + currentIndex);
+        ac.SetInteger("index", currentIndex);
+        render.sprite = objectInfos[currentIndex].image;
     }
 
     public void SetIsSelected(bool isSelected)
