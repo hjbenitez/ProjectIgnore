@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
                     isEndedARound = true;
                     currentTimer = 0;
                     objectIndex = 0;
-
+                    SoundManager.instance.Play("CompleteSound");
                     for(int i = 0; i < selectedObjects.Length; i++)
                     {
                         if(selectedObjects[i] != null )
