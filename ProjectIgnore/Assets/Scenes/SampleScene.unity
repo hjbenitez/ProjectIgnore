@@ -171,6 +171,7 @@ MonoBehaviour:
     image: {fileID: 21300000, guid: bc9f58d8f2899e042abb72f800141ffc, type: 3}
   - duration: 6
     image: {fileID: 21300000, guid: 7f257b22a48e7634abb3d355a13aeebf, type: 3}
+  canDisappear: 1
 --- !u!212 &48710176
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -582,6 +583,7 @@ MonoBehaviour:
     image: {fileID: -844449574, guid: ecb757ffaa963ed49acee2f909d0ce60, type: 3}
   - duration: 6
     image: {fileID: 830979488, guid: ecb757ffaa963ed49acee2f909d0ce60, type: 3}
+  canDisappear: 1
 --- !u!212 &164668792
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1198,10 +1200,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3017f7ad78d14403e9fedaabe83c19ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  items: []
   selectedObjects: []
   Eyes: {fileID: 1331496133}
-  selectedObject: {fileID: 0}
   allObjects:
   - {fileID: 1523608030}
   - {fileID: 48710175}
@@ -1609,6 +1609,7 @@ MonoBehaviour:
     image: {fileID: 21300000, guid: a32ade6f6bc7c4adaa569951edb5407b, type: 3}
   - duration: 10
     image: {fileID: 21300000, guid: 329f2c1735e8f452fb47425dfca079c7, type: 3}
+  canDisappear: 1
 --- !u!212 &849027654
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2742,7 +2743,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1482439957
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2838,6 +2839,7 @@ MonoBehaviour:
     image: {fileID: 21300000, guid: 9d0f5761f71cced479f3cba47b97e459, type: 3}
   - duration: 6
     image: {fileID: 21300000, guid: 0ab79c7887df4a14da71775761d1f831, type: 3}
+  canDisappear: 1
 --- !u!212 &1483474750
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3030,6 +3032,7 @@ MonoBehaviour:
     image: {fileID: 21300000, guid: 6b767632c19ca6548bc20f8d6b24c182, type: 3}
   - duration: 6
     image: {fileID: 21300000, guid: d7b16f2b586aa2a438b3cdc64c5985e7, type: 3}
+  canDisappear: 1
 --- !u!212 &1523608031
 SpriteRenderer:
   m_ObjectHideFlags: 0
