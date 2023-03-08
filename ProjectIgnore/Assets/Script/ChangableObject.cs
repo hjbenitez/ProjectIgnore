@@ -65,4 +65,9 @@ public class ChangableObject : MonoBehaviour
     {
         this.isSelected = isSelected;
     }
+
+    public bool GetIsSelected()
+    {
+        return isSelected;
+    }
 }
