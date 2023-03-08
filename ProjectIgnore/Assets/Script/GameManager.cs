@@ -8,10 +8,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    [SerializeField] private List<SpriteRenderer> items;
     [SerializeField] private ChangableObject[] selectedObjects;
     [SerializeField] private GameObject Eyes;
-    [SerializeField] private ChangableObject selectedObject;
     [SerializeField] private List<ChangableObject> allObjects;
 
     private float targetDuration = 5;
@@ -50,6 +48,17 @@ public class GameManager : MonoBehaviour
                     UpdateAllObjects();
                     isEndedARound = true;
                     currentTimer = 0;
+                    objectIndex = 0;
+
+                    for(int i = 0; i < selectedObjects.Length; i++)
+                    {
+                        if(selectedObjects[i] != null )
+                        {
+                            selectedObjects[i].SetIsSelected(false);
+                            selectedObjects[i].gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+                            selectedObjects[i] = null;
+                        }
+                    }
                 }
             }
         }
