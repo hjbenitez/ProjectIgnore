@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor.Animations;
 
 [RequireComponent(typeof(SpriteRenderer))]
 public class ChangableObject : MonoBehaviour
@@ -11,10 +12,12 @@ public class ChangableObject : MonoBehaviour
     private float targetDuration = 0;
     private float currentTimer = 0;
     private bool isSelected = false;
+    private Animator ac;
 
     private void Awake()
     {
         render = GetComponent<SpriteRenderer>();
+        ac = GetComponent<Animator>();
     }
 
     void Start()
@@ -37,6 +40,8 @@ public class ChangableObject : MonoBehaviour
             if (currentTimer > targetDuration)
             {
                 currentIndex++;
+                ac.SetInteger("index", currentIndex);
+
                 if (currentIndex < objectInfos.Count)
                 {
                     render.sprite = objectInfos[currentIndex].image;

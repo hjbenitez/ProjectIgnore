@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
         instance = this;
         blink = Eyes.GetComponent<Blink>();
         item.gameObject.SetActive(false);
-
+        
     }
 
     private void Update()
