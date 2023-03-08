@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     private float currentTimer = 0;
     private bool isEndedARound = false;
 
-    private int objectIndex = -1;
+    private int objectIndex = 0;
     private Blink blink;
 
     private void Awake()
@@ -38,7 +38,6 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        objectIndex = Mathf.Clamp(objectIndex, 0, 3);
         if (GetEyesIsClosed())
         {
             //Debug.Log("Eye cloesed");
@@ -58,18 +57,6 @@ public class GameManager : MonoBehaviour
         {
             isEndedARound = false;
             currentTimer = 0;
-        }
-
-        if (selectedObject != null)
-        {
-            item.gameObject.SetActive(true);
-            item.sprite = selectedObject.GetComponent<SpriteRenderer>().sprite;
-        }
-
-        else
-        {
-            item.sprite = null;
-            item.gameObject.SetActive(false);
         }
     }
 
@@ -98,11 +85,13 @@ public class GameManager : MonoBehaviour
     public void IncrementObject()
     {
         objectIndex++;
+        objectIndex = Mathf.Clamp(objectIndex, 0, 3);
     }
 
     public void DecrementObject()
     {
         objectIndex--;
+        objectIndex = Mathf.Clamp(objectIndex, 0, 3);
     }
 
 }
