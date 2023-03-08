@@ -103,4 +103,9 @@ public class GameManager : MonoBehaviour
         objectIndex = Mathf.Clamp(objectIndex, 0, 3);
     }
 
+    public int GetObjectIndex()
+    {
+        return objectIndex;
+    }
+
 }
