@@ -27,6 +27,17 @@ public class ChangableObject : MonoBehaviour
         render.sprite = objectInfos[currentIndex].image;
     }
 
+    public void ResetPhrase()
+    {
+        currentIndex = 0;
+        disappearCounter = 0;
+        isSelected = false;
+        ac.SetInteger("index", currentIndex);
+        render.sprite = objectInfos[currentIndex].image;
+        gameObject.SetActive(true);
+
+    }
+
     public void UpdatePhrase()
     {
         if (currentIndex == objectInfos.Count - 1 && !isSelected && canDisappear) // in last phrase and not selected

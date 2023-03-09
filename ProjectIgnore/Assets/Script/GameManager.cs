@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Animator hands;
     [SerializeField] private Vector3[] handsPositions;
 
-    private float targetDuration = 1.5f;
+    [SerializeField] private float targetDuration = 2;
     private float currentTimer = 0;
     private bool isEndedARound = false;
 
@@ -45,6 +45,20 @@ public class GameManager : MonoBehaviour
         {
             obj.UpdatePhrase();
         }
+    }
+
+    private void DeselectAllObjects()
+    {
+        for (int i = 0; i < selectedObjects.Length; i++)
+        {
+            if (selectedObjects[i] != null)
+            {
+                selectedObjects[i].SetIsSelected(false);
+                selectedObjects[i].gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+                selectedObjects[i] = null;
+            }
+        }
+        objectIndex = 0;
     }
 
     private void Update()
@@ -77,15 +91,7 @@ public class GameManager : MonoBehaviour
                     SoundManager.instance.Play("CompleteSound");
 
                     //Deselects the user selections after succdssful blink
-                    for(int i = 0; i < selectedObjects.Length; i++)
-                    {
-                        if(selectedObjects[i] != null )
-                        {
-                            selectedObjects[i].SetIsSelected(false);
-                            selectedObjects[i].gameObject.GetComponent<SpriteRenderer>().color = Color.white;
-                            selectedObjects[i] = null;
-                        }
-                    }
+                    DeselectAllObjects();
                 }
             }
         }
@@ -134,6 +140,21 @@ public class GameManager : MonoBehaviour
     public int GetObjectIndex()
     {
         return objectIndex;
+    }
+
+    public void ResetGame()
+    {
+        foreach (ChangableObject obj in allObjects)
+        {
+            obj.ResetPhrase();
+        }
+
+        //Change background
+        int backgroundIndex = allObjects[2].GetIndex();
+        currentBackground.sprite = backgrounds[backgroundIndex];
+
+        DeselectAllObjects();
+
     }
 
 }
