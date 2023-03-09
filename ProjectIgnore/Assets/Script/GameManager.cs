@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEditor.Animations;
+using System.Linq;
 
 public class GameManager : MonoBehaviour
 {
@@ -29,6 +30,13 @@ public class GameManager : MonoBehaviour
         instance = this;
         blink = Eyes.GetComponent<Blink>();
         selectedObjects = new ChangableObject[3];
+
+        GameObject[] allObjectsGO = GameObject.FindGameObjectsWithTag("Object");
+
+        foreach(GameObject go in allObjectsGO)
+        {
+            allObjects.Add(go.GetComponent<ChangableObject>());
+        }
     }
 
     private void UpdateAllObjects()
