@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEditor.Animations;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,8 +14,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private List<ChangableObject> allObjects;
     [SerializeField] private SpriteRenderer currentBackground;
     [SerializeField] private List<Sprite> backgrounds;
+    [SerializeField] private Animator hands;
+    [SerializeField] private Vector3[] handsPositions;
 
-    private float targetDuration = 5;
+    private float targetDuration = 1.5f;
     private float currentTimer = 0;
     private bool isEndedARound = false;
 
@@ -38,8 +41,11 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        
+
         if (GetEyesIsClosed())
         {
+            hands.speed = 1;
             //Debug.Log("Eye cloesed");
             if (!isEndedARound)
             {
@@ -55,6 +61,10 @@ public class GameManager : MonoBehaviour
                     //Change background
                     int backgroundIndex = allObjects[2].GetIndex();
                     currentBackground.sprite = backgrounds[backgroundIndex];
+
+                    //Set hands center
+                    int handsIndex = allObjects[7].GetIndex();
+                    hands.gameObject.transform.localPosition = handsPositions[handsIndex];
 
                     SoundManager.instance.Play("CompleteSound");
 
@@ -73,6 +83,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            hands.speed = 0;
             isEndedARound = false;
             currentTimer = 0;
         }
