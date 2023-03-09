@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEditor.Animations;
+using System.Linq;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,6 +15,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private List<ChangableObject> allObjects;
     [SerializeField] private SpriteRenderer currentBackground;
     [SerializeField] private List<Sprite> backgrounds;
+    [SerializeField] private Animator hands;
+    [SerializeField] private Vector3[] handsPositions;
 
     [SerializeField] private float targetDuration = 2;
     private float currentTimer = 0;
@@ -26,6 +30,13 @@ public class GameManager : MonoBehaviour
         instance = this;
         blink = Eyes.GetComponent<Blink>();
         selectedObjects = new ChangableObject[3];
+
+        GameObject[] allObjectsGO = GameObject.FindGameObjectsWithTag("Object");
+
+        foreach(GameObject go in allObjectsGO)
+        {
+            allObjects.Add(go.GetComponent<ChangableObject>());
+        }
     }
 
     private void UpdateAllObjects()
@@ -52,8 +63,11 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        
+
         if (GetEyesIsClosed())
         {
+            hands.speed = 1;
             //Debug.Log("Eye cloesed");
             if (!isEndedARound)
             {
@@ -70,6 +84,10 @@ public class GameManager : MonoBehaviour
                     int backgroundIndex = allObjects[2].GetIndex();
                     currentBackground.sprite = backgrounds[backgroundIndex];
 
+                    //Set hands center
+                    int handsIndex = allObjects[7].GetIndex();
+                    hands.gameObject.transform.localPosition = handsPositions[handsIndex];
+
                     SoundManager.instance.Play("CompleteSound");
 
                     //Deselects the user selections after succdssful blink
@@ -79,6 +97,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            hands.speed = 0;
             isEndedARound = false;
             currentTimer = 0;
         }
