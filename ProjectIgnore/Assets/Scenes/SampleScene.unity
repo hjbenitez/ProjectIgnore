@@ -610,7 +610,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &191553118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1082,8 +1082,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 22
-  m_fontSizeBase: 22
+  m_fontSize: 18
+  m_fontSizeBase: 18
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2049,12 +2049,16 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Click on an object on screen to enter a focus mode.
+  m_text: 'CLICK to select objects to keep the same (up to 3)
 
-    Press space to
-    close your eyes.
+    ESC to deselect
+    an object
 
-    Observe the changes! Enjoy!!'
+    HOLD SPACE until you hear a jingle to blink
+
+
+    See what changes
+    were made, and if you can empty out the entire room :)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2218,8 +2222,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 22
-  m_fontSizeBase: 22
+  m_fontSize: 18
+  m_fontSizeBase: 18
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2305,8 +2309,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 212, y: 186.98337}
-  m_SizeDelta: {x: 101.2495, y: 36.0332}
+  m_AnchoredPosition: {x: 301, y: 200.1}
+  m_SizeDelta: {x: 57.8708, y: 30.3338}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &969336983
 MonoBehaviour:
@@ -2726,8 +2730,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 326, y: 186.98337}
-  m_SizeDelta: {x: 101.2495, y: 36.0332}
+  m_AnchoredPosition: {x: 364.3, y: 199.71}
+  m_SizeDelta: {x: 56.7402, y: 29.5523}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1180254791
 MonoBehaviour:
