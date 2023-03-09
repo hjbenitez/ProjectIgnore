@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] GameObject InstructionScreen;
     // Update is called once per frame
     void Update()
     {
-
+        if (InstructionScreen.activeSelf)
+        {
+            return;
+        }
         if (Input.GetMouseButtonDown(0) && GameManager.instance.GetObjectIndex() < 3)
         {
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
