@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private ChangableObject[] selectedObjects;
     [SerializeField] private GameObject Eyes;
     [SerializeField] private List<ChangableObject> allObjects;
+    [SerializeField] private SpriteRenderer currentBackground;
+    [SerializeField] private List<Sprite> backgrounds;
 
     private float targetDuration = 5;
     private float currentTimer = 0;
@@ -49,7 +51,14 @@ public class GameManager : MonoBehaviour
                     isEndedARound = true;
                     currentTimer = 0;
                     objectIndex = 0;
+
+                    //Change background
+                    int backgroundIndex = allObjects[2].GetIndex();
+                    currentBackground.sprite = backgrounds[backgroundIndex];
+
                     SoundManager.instance.Play("CompleteSound");
+
+                    //Deselects the user selections after succdssful blink
                     for(int i = 0; i < selectedObjects.Length; i++)
                     {
                         if(selectedObjects[i] != null )

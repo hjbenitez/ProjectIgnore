@@ -57,4 +57,9 @@ public class ChangableObject : MonoBehaviour
     {
         return isSelected;
     }
+
+    public int GetIndex()
+    {
+        return currentIndex;
+    }
 }
