@@ -2497,6 +2497,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 2fbfc53ba799ce744a6079e628d818f6, type: 3}
+    - target: {fileID: 1260319297145689242, guid: 8f40a8afc9289b448acbf8e288a418a7, type: 3}
+      propertyPath: objectInfos.Array.data[2].image
+      value: 
+      objectReference: {fileID: 21300000, guid: fa2a5bde85dee1042a46092a21d2100e, type: 3}
     - target: {fileID: 1260319297145689246, guid: 8f40a8afc9289b448acbf8e288a418a7, type: 3}
       propertyPath: m_Name
       value: Orchid
