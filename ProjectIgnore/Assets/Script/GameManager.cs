@@ -153,6 +153,9 @@ public class GameManager : MonoBehaviour
         int backgroundIndex = allObjects[2].GetIndex();
         currentBackground.sprite = backgrounds[backgroundIndex];
 
+        hands.gameObject.transform.localPosition = handsPositions[0];
+
+
         DeselectAllObjects();
 
     }
